@@ -1,1 +1,5 @@
+kip\springframework\springpetclinic\bootstrap\DataLoader.class
+kip\springframework\springpetclinic\controllers\OwnerController.class
+kip\springframework\springpetclinic\controllers\VetController.class
+kip\springframework\springpetclinic\controllers\IndexController.class
 kip\springframework\springpetclinic\SpringPetClinicApplication.class
