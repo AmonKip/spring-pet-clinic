@@ -6,7 +6,7 @@ import kip.springframework.springpetclinic.model.PetType;
 import kip.springframework.springpetclinic.model.Vet;
 import kip.springframework.springpetclinic.services.OwnerService;
 import kip.springframework.springpetclinic.services.VetService;
-import kip.springframework.springpetclinic.services.map.PetTypeService;
+import kip.springframework.springpetclinic.services.PetTypeService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 

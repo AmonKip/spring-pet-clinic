@@ -4,6 +4,7 @@ import kip.springframework.springpetclinic.model.Owner;
 import kip.springframework.springpetclinic.model.Pet;
 import kip.springframework.springpetclinic.services.OwnerService;
 import kip.springframework.springpetclinic.services.PetService;
+import kip.springframework.springpetclinic.services.PetTypeService;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;

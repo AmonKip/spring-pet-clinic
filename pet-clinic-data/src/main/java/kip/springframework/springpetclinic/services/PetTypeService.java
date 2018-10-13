@@ -1,4 +1,4 @@
-package kip.springframework.springpetclinic.services.map;
+package kip.springframework.springpetclinic.services;
 
 import kip.springframework.springpetclinic.model.PetType;
 import kip.springframework.springpetclinic.services.CrudService;
