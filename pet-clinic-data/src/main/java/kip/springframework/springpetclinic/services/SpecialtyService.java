@@ -1,6 +1,6 @@
 package kip.springframework.springpetclinic.services;
 
-import kip.springframework.springpetclinic.model.Speciality;
+import kip.springframework.springpetclinic.model.Specialty;
 
-public interface SpecialtyService extends  CrudService<Speciality, Long> {
+public interface SpecialtyService extends  CrudService<Specialty, Long> {
 }

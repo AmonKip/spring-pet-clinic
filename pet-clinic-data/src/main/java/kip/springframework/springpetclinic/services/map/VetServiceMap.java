@@ -1,6 +1,6 @@
 package kip.springframework.springpetclinic.services.map;
 
-import kip.springframework.springpetclinic.model.Speciality;
+import kip.springframework.springpetclinic.model.Specialty;
 import kip.springframework.springpetclinic.model.Vet;
 import kip.springframework.springpetclinic.services.SpecialtyService;
 import kip.springframework.springpetclinic.services.VetService;
@@ -33,7 +33,7 @@ public class VetServiceMap extends AbstractMapService<Vet, Long>  implements Vet
         if(object.getSpecialities().size() > 0){
             object.getSpecialities().forEach(speciality -> {
                 if(speciality.getId() == null){
-                    Speciality savedSpecialty = specialtyService.save(speciality);
+                    Specialty savedSpecialty = specialtyService.save(speciality);
                     speciality.setId(savedSpecialty.getId());
                 }
             });
