@@ -84,16 +84,16 @@ public class DataLoader implements CommandLineRunner {
         owner2.setCity("Fairfax");
         owner2.setTelephone("703-222-1234");
 
-        Pet susansPet = new Pet();
-        susansPet.setPetType(savedCatPetType);
-        susansPet.setBirthDate(LocalDate.now());
-        susansPet.setName("Meow");
-        owner2.getPets().add(susansPet);
+        Pet susansCat = new Pet();
+        susansCat.setPetType(savedCatPetType);
+        susansCat.setBirthDate(LocalDate.now());
+        susansCat.setName("Meow");
+        owner2.getPets().add(susansCat);
 
         ownerService.save(owner2);
 
         Visit catVisit = new Visit();
-        catVisit.setPet(susansPet);
+        catVisit.setPet(susansCat);
         catVisit.setDate(LocalDate.now());
         catVisit.setDescription("Sneezy Kitty");
 
