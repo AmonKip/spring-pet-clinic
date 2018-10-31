@@ -15,14 +15,16 @@ public class DataLoader implements CommandLineRunner {
     private final PetTypeService petTypeService;
     private final SpecialtyService specialtyService;
     private final VisitService visitService;
+    private final  PetService petService;
 
     public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService,
-                      SpecialtyService specialtyService, VisitService visitService) {
+                      SpecialtyService specialtyService, VisitService visitService, PetService petService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petTypeService = petTypeService;
         this.specialtyService = specialtyService;
         this.visitService = visitService;
+        this.petService = petService;
     }
 
 
@@ -45,8 +47,6 @@ public class DataLoader implements CommandLineRunner {
         cat.setName("Cat");
         PetType savedCatPetType = petTypeService.save(cat);
 
-
-        // Specialties
         Specialty radiology = new Specialty();
         radiology.setDescription("Radiology");
         Specialty savedRadiology = specialtyService.save(radiology);
@@ -56,44 +56,43 @@ public class DataLoader implements CommandLineRunner {
         Specialty savedSurgery = specialtyService.save(surgery);
 
         Specialty dentistry = new Specialty();
-        dentistry.setDescription("Dentistry");
+        dentistry.setDescription("dentistry");
         Specialty savedDentistry = specialtyService.save(dentistry);
 
         Owner owner1 = new Owner();
-        owner1.setId(1L);
         owner1.setFirstName("Michael");
-        owner1.setLastName("Rich");
-        owner1.setAddress("232 Fairway Dr.");
-        owner1.setCity("Manassas");
-        owner1.setTelephone("703-123-4567");
+        owner1.setLastName("Weston");
+        owner1.setAddress("123 Brickerel");
+        owner1.setCity("Miami");
+        owner1.setTelephone("1231231234");
 
         Pet mikesPet = new Pet();
         mikesPet.setPetType(savedDogPetType);
+        mikesPet.setOwner(owner1);
         mikesPet.setBirthDate(LocalDate.now());
-        mikesPet.setName("Chui");
+        mikesPet.setName("Rosco");
         owner1.getPets().add(mikesPet);
-
 
         ownerService.save(owner1);
 
         Owner owner2 = new Owner();
-        owner2.setId(2L);
-        owner2.setFirstName("Susan");
-        owner2.setLastName("Johnson");
-        owner2.setAddress("100 Lomond Dr.");
-        owner2.setCity("Fairfax");
-        owner2.setTelephone("703-222-1234");
+        owner2.setFirstName("Fiona");
+        owner2.setLastName("Glenanne");
+        owner2.setAddress("123 Brickerel");
+        owner2.setCity("Miami");
+        owner2.setTelephone("1231231234");
 
-        Pet susansCat = new Pet();
-        susansCat.setPetType(savedCatPetType);
-        susansCat.setBirthDate(LocalDate.now());
-        susansCat.setName("Meow");
-        owner2.getPets().add(susansCat);
+        Pet fionasCat = new Pet();
+        fionasCat.setName("Just Cat");
+        fionasCat.setOwner(owner2);
+        fionasCat.setBirthDate(LocalDate.now());
+        fionasCat.setPetType(savedCatPetType);
+        owner2.getPets().add(fionasCat);
 
         ownerService.save(owner2);
 
         Visit catVisit = new Visit();
-        catVisit.setPet(susansCat);
+        catVisit.setPet(fionasCat);
         catVisit.setDate(LocalDate.now());
         catVisit.setDescription("Sneezy Kitty");
 
@@ -101,20 +100,17 @@ public class DataLoader implements CommandLineRunner {
 
         System.out.println("Loaded Owners....");
 
-        // Vets
         Vet vet1 = new Vet();
-        vet1.setId(1L);
-        vet1.setFirstName("Peter");
-        vet1.setLastName("Smith");
+        vet1.setFirstName("Sam");
+        vet1.setLastName("Axe");
         vet1.getSpecialties().add(savedRadiology);
 
         vetService.save(vet1);
 
         Vet vet2 = new Vet();
-        vet2.setId(2L);
-        vet2.setFirstName("Sally");
-        vet2.setLastName("Thompson");
-        vet2.getSpecialties().add(savedDentistry);
+        vet2.setFirstName("Jessie");
+        vet2.setLastName("Porter");
+        vet2.getSpecialties().add(savedSurgery);
 
         vetService.save(vet2);
 
